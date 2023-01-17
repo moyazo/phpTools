@@ -1,0 +1,11 @@
+# version: '3.7'
+# services:
+#   apache_container:
+#     container_name: apacheContainer
+#     image: php:8.0.0-apache
+#     ports:
+#       - 8000:80
+#     volumes:
+#       - hostPath:containerPath:ro
+
+    
