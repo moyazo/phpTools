@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+include 'Dulce.php';
 
 class Pasteleria{
     private string $nombre;
@@ -26,50 +28,76 @@ class Pasteleria{
         {
                 return $this->nombre;
         }
-        public function setNombre($nombre)
-        {
-                $this->nombre = $nombre;
-
-                return $this;
-        }
-        public function getProductos()
-        {
-                return $this->productos;
-        }
-        public function setProductos($productos)
-        {
-                $this->productos = $productos;
-
-                return $this;
-        }
         public function getNumProductos()
         {
                 return $this->numProductos;
-        }
-        public function setNumProductos($numProductos)
-        {
-                $this->numProductos = $numProductos;
-                return $this;
-        }
-        public function getClientes()
-        {
-                return $this->clientes;
-        }
-        public function setClientes($clientes)
-        {
-                $this->clientes = $clientes;
-
-                return $this;
         }
         public function getNumClientes()
         {
             return $this->numClientes;
         }
-        public function setNumClientes($numClientes)
-        {
-                $this->numClientes = $numClientes;
 
-                return $this;
+        private function incluirProducto(Dulce $producto){
+                if(in_array($producto,$this->productos)){
+                        echo 'El producto ' . $producto->nombre . 'ya estaba incluido';
+                }else{
+                        array_push($this->productos, $producto->numero);
+                        echo 'El producto ' . $producto->nombre . 'ha sido incluido';
+                }
+        }
+        public function incluirTarta(Dulce $tarta){
+                $this->incluirProducto($tarta);
+        }
+
+        public function incluirBollo(Dulce $bollo){
+                $this->incluirProducto($bollo);
+        }
+
+        public function incluirChocolate(Dulce $chocolate){
+                $this->incluirProducto($chocolate);
+        }
+        
+        public function incluirCliente(Cliente $cliente){
+                if(in_array($cliente,$this->clientes)){
+                        echo 'El cliente ' . $cliente . 'ya estaba incluido';
+                }else{
+                        array_push($this->clientes, $cliente);
+                        echo 'El cliente ' . $cliente . 'ha sido incluido';
+                }
+        }
+        public function listarProductos(){
+                foreach ($this->productos as $producto) {
+                        print('<ul>');
+                        echo "<li>$producto</li>";
+                        print('</ul>');
+                }
+        }
+        public function listarClientes(){
+                foreach ($this->clientes as $cliente) {
+                        print('<ul>');
+                        echo "<li>$cliente</li>";
+                        print('</ul>');
+                }
+        }
+
+        public function comprarClienteProducto($numeroCliente,$numeroDulce){
+                if(!in_array($this->clientes,$numeroCliente) || !in_array($this->productos,$numeroDulce))
+                {
+                        echo 'El cliente o número de dulce no se encuentra en 
+                        nuestra pastelería porfavor incluyalo';
+                }else{
+                        foreach ($this->clientes as $cliente) {
+                                if($cliente->numero == $numeroCliente){
+                                        $cliente->numPedidosEfectuados++;
+                                       foreach ($this->productos as $producto) {
+                                                if($producto->numero == $numeroDulce){
+                                                        array_push($cliente->dulcesComprados, $producto);
+                                                }
+                                       }
+                                        break;
+                                }
+                        }
+                }
         }
 }
 

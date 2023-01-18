@@ -3,7 +3,7 @@ class Cliente{
     public string $name;
     private int $numero;
     private $dulcesComprados = [];
-    private int $numDulcesComprados;
+    private int $numDulcesComprados = 0;
     private int $numPedidosEfectuados = 0;
 
 
