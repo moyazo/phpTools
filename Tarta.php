@@ -5,7 +5,7 @@ include './Dulces.php';
 class Tarta extends Dulce{
     private $rellenos = [];
     private int $numPisos;
-    private int $minNumComensales;
+    private int $minNumComensales = 2;
     private int $maxNumComensales;
     function __construct(
         array $rellenos,
@@ -26,18 +26,20 @@ class Tarta extends Dulce{
 
     public function muestraComensalesPosibles(){
         if($this->minNumComensales == 1 && $this->maxNumComensales == 1){
-            return "para ".$this->minNumComensales." comensal";
-        }else if($this->minNumComensales == 1 && $this->maxNumComensales > 1){
-            return "para " .  $this->maxNumComensales . " comensales";
+            return "para mínimo ".$this->minNumComensales."(es) comensal";
         }else if ($this->minNumComensales > 1 && $this->maxNumComensales > 1){
-            return "de " .  $this->minNumComensales . " comensales a " . $this->maxNumComensales ." comensales";
+            return " para " .  $this->minNumComensales . " comensal(es) o " . $this->maxNumComensales ." comensales";
         }
     }
 
     public function muestraResumen()
     {
         parent::muestraResumen();
-        echo 'Es un tarta' . $this->muestraComensalesPosibles();
+        echo '<br>Es un tarta' . $this->muestraComensalesPosibles() .'con relleno de <br>';
+
+        foreach ($this->rellenos as $relleno) {
+            echo '<br>&nbsp&nbsp&nbsp- '. $relleno . '<br>';
+        }
     } 
 }
 

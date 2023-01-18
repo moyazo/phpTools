@@ -18,10 +18,9 @@ class Dulce { // Parent class
     }
 
     public function muestraResumen(){
-        echo 'Dulce con nombre ' . $this->nombre .
-            '/' . $this->numero .
-            ' vale ' . $this->precio . '€';
-
+        echo '<strong>NOMBRE</strong>: '. $this->nombre .'<br>';
+        echo '<strong>NÚMERO</strong>: '. $this->numero .'<br>';
+        echo '<strong>PRECIO</strong>: '. $this->precio .'<br>';
     }
 }
 
