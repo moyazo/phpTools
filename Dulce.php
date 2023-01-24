@@ -1,6 +1,12 @@
-<?php 
+<?php
+include_once('Resumible.php');
+// Una clase abstracta es una clase base 
+// para otras clases llamadas “clases concretas” o clases reales. 
+// La finalidad de esta clase consiste en ocultar 
+// lo complicado de nuestro código y ofrecernos funciones de alto nivel, sencillas de utilizar para interactuar con nuestra aplicación sin conocer cómo funciona por dentro.
 
-class Dulce { // Parent class 
+
+abstract class Dulce implements Resumible { // Parent class 
     public string $nombre;
     protected int $numero;
     private float $precio;

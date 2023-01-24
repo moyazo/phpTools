@@ -30,10 +30,8 @@ echo $pasteleria->listarProductos();
 
 
 $pasteleria->comprarClienteProducto(1,1);
-$arrayComprados = $cliente1->getDulcesComprados();
-foreach ($arrayComprados as $comprado) {
-    echo '<br>' . $comprado->getNombre();
-}
+$pasteleria->comprarClienteProducto(2,2);
+$pasteleria->comprarClienteProducto(5,5);
 // echo $cliente1->dulcesComprados[0];
 
 ?>

@@ -84,20 +84,31 @@ class Pasteleria{
 
         public function comprarClienteProducto($numeroCliente,$numeroDulce){
 
+                $clienteC = null;
+                $productoC = null;
+        
                 foreach ($this->clientes as $cliente) {
-                       if($cliente->getNumero() != $numeroCliente){
-                                echo 'El cliente o número de dulce no se encuentra en 
-                                 nuestra pastelería porfavor incluyalo';
-                       }else{
-                                foreach ($this->productos as $producto) {
-                                        if($producto->getNumero() == $numeroDulce){
-                                                $cliente->comprar($producto);
-                                                echo 'El cliente ' . $cliente->getName() . ' ha comprado ' . $producto->getNombre() . '<br>';
-                                                return;
-                                        }
-                                }
-                       }
+                    if($cliente->getNumero() == $numeroCliente){
+                        $clienteC = $cliente;
+                    } 
                 }
+        
+                if ($clienteC == null) {
+                    echo "Este cliente no puede comprar ya que no existe.";
+                } else {
+                    foreach ($this->productos as $producto) {
+                        if($producto->getNumero() == $numeroDulce){
+                            $productoC = $producto;
+                        }
+                    }
+        
+                    if ($productoC == null) {
+                        echo "Este producto no se puede comprar ya que no existe.";
+                    } else {
+                        $clienteC->comprar($productoC);
+                    }
+                }
+        
         }
 }
 
