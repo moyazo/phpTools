@@ -1,1 +1,5 @@
 /vendor/
+phpDocumentor.phar
+composer.lock
+.phpdoc
+log.log
