@@ -4,10 +4,18 @@ use utils\LogFactory;
 include_once('../utils/LogFactory.php');
 include_once('Dulce.php');
 
+/**
+ * Chocolate
+ */
 class Chocolate extends Dulce{
     private string $cacao;
     private float $peso;
-    private Logger $log;
+    private Logger $log;    
+    /**
+     * __construct
+     *
+     * @return void
+     */
     function __construct(
         string $cacao,
         float $peso,
@@ -22,7 +30,11 @@ class Chocolate extends Dulce{
         parent::__construct($nombre, $numero, $precio);
  
     }
-
+    /**
+     * muestraResumen
+     *
+     * @return void
+     */
     public function muestraResumen()
     {
         parent::muestraResumen();

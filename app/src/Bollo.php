@@ -4,9 +4,17 @@ use utils\LogFactory;
 include_once('Dulce.php');
 include_once('../utils/LogFactory.php');
 
+/**
+ * Bollo
+ */
 class Bollo extends Dulce{
     private string $relleno;
-    private Logger $log;
+    private Logger $log;    
+    /**
+     * __construct
+     *
+     * @return void
+     */
     function __construct(
         string $relleno,
         string $nombre,
@@ -23,7 +31,12 @@ class Bollo extends Dulce{
         {
                 return $this->nombre;
         }
-
+        
+    /**
+     * muestraResumen
+     *
+     * @return void
+     */
     public function muestraResumen(){
         parent::muestraResumen();
          if($this->relleno == 'Sin relleno'){
@@ -34,9 +47,7 @@ class Bollo extends Dulce{
             echo '<br><br> Es un bollo relleno de ' . $this->relleno;
          }
          echo '<br> ----------------------------';
-    }
-
-        
+    }     
 }
 
 ?>

@@ -1,6 +1,11 @@
 <?php 
 
-interface Resumible{
+interface Resumible{    
+    /**
+     * muestraResumen
+     *
+     * @return void
+     */
     public function muestraResumen();
 }
 

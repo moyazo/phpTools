@@ -1,4 +1,9 @@
 <?php
+/**
+ * *SUMMARY*, 'Pasteleria.php' CODE.
+ * 
+ * *DESCRIPTION*, WE WILL IMPLEMENT ALL THE METHODS THAT INVOLED ALL OUR CLASSSES. IT WILL CONTROL WITH MONOLOG AND EXCEPTIONS.
+ */
 use Monolog\Logger;
 use utils\LogFactory;
 include_once('Dulce.php');
@@ -8,6 +13,9 @@ include_once('../utils/DulceNoComprado.php');
 include_once('../utils/ClienteNoEncontrado.php');
 include_once('../utils/LogFactory.php');
 
+/**
+ * Pasteleria
+ */
 class Pasteleria
 {
         private string $nombre;
@@ -15,7 +23,12 @@ class Pasteleria
         private int $numProductos;
         private $clientes = [];
         private int $numClientes;
-        private Logger $log;
+        private Logger $log;        
+        /**
+         * __construct
+         *
+         * @return void
+         */
         function __construct(
                 string $nombre,
         )
@@ -23,26 +36,53 @@ class Pasteleria
                 $this->nombre = $nombre;
                 $this->log = LogFactory::getLogger();
         }
-
+        
+        
+        /**
+         * getNombre
+         *
+         * @return void
+         */
         public function getNombre()
         {
-                return $this->nombre;
+                $this->nombre;
         }
-
+                
+        /**
+         * getProductos
+         *
+         * @return void
+         */
         public function getProductos()
         {
-                return $this->productos;
+                $this->productos;
         }
-
+                
+        /**
+         * getNumProductos
+         *
+         * @return void
+         */
         public function getNumProductos()
         {
-                return $this->numProductos;
-        }
+                $this->numProductos;
+        }        
+        /**
+         * getNumClientes
+         *
+         * @return void
+         */
         public function getNumClientes()
         {
-                return $this->numClientes;
+                $this->numClientes;
         }
-
+        
+        /**
+         * incluirProducto
+         *
+         * @param  mixed $producto
+         * @return void
+         */
         private function incluirProducto(Dulce $producto)
         {
                 // echo in_array($producto, $this->productos);
@@ -54,22 +94,46 @@ class Pasteleria
                         $this->log->info('El producto ' . $producto->nombre . ' ha sido incluido<br>');
                         echo 'El producto ' . $producto->nombre . ' ha sido incluido<br>';
                 }
-        }
+        }        
+        /**
+         * incluirTarta
+         *
+         * @param  mixed $tarta
+         * @return void
+         */
         public function incluirTarta(Tarta $tarta)
         {
                 $this->incluirProducto($tarta);
         }
-
+        
+        /**
+         * incluirBollo
+         *
+         * @param  mixed $bollo
+         * @return void
+         */
         public function incluirBollo(Bollo $bollo)
         {
                 $this->incluirProducto($bollo);
         }
-
+        
+        /**
+         * incluirChocolate
+         *
+         * @param  mixed $chocolate
+         * @return void
+         */
         public function incluirChocolate(Chocolate $chocolate)
         {
                 $this->incluirProducto($chocolate);
         }
-
+        
+        /**
+         * incluirCliente
+         *
+         * @param  mixed $cliente
+         * @return void
+         */
         public function incluirCliente(Cliente $cliente)
         {
                 if (in_array($cliente, $this->clientes)) {
@@ -80,7 +144,12 @@ class Pasteleria
                         $this->log->info('El cliente ' . $cliente->getName() . ' ha sido incluido<br>');
                         echo 'El cliente ' . $cliente->getName() . ' ha sido incluido<br>';
                 }
-        }
+        }        
+        /**
+         * listarProductos
+         *
+         * @return void
+         */
         public function listarProductos()
         {
                 foreach ($this->productos as $producto) {
@@ -88,7 +157,12 @@ class Pasteleria
                         echo '<li>Producto número' . $producto->getNumero() . '</li>';
                         print('</ul>');
                 }
-        }
+        }        
+        /**
+         * listarClientes
+         *
+         * @return void
+         */
         public function listarClientes()
         {
                 foreach ($this->clientes as $cliente) {
@@ -97,7 +171,14 @@ class Pasteleria
                         print('</ul>');
                 }
         }
-
+        
+        /**
+         * comprarClienteProducto
+         *
+         * @param  mixed $numeroCliente
+         * @param  mixed $numeroDulce
+         * @return void
+         */
         public function comprarClienteProducto($numeroCliente, $numeroDulce)
         {
 
@@ -125,7 +206,6 @@ class Pasteleria
                 }
 
         }
-
 } 
 
 ?>

@@ -4,12 +4,20 @@ use utils\LogFactory;
 include_once('Dulce.php');
 include_once('../utils/LogFactory.php');
 
+/**
+ * Tarta
+ */
 class Tarta extends Dulce{
     private $rellenos = [];
     private int $numPisos;
     private int $minNumComensales = 2;
     private int $maxNumComensales;
-    private Logger $log;
+    private Logger $log;    
+    /**
+     * __construct
+     *
+     * @return void
+     */
     function __construct(
         array $rellenos,
         int $numPisos,
@@ -17,7 +25,8 @@ class Tarta extends Dulce{
         int $maxNumComensales,
         string $nombre,
         int $numero,
-        float $precio){
+        float $precio)
+        {
 
         $this->rellenos = $rellenos;
         $this->numPisos = $numPisos;
@@ -27,7 +36,12 @@ class Tarta extends Dulce{
         parent::__construct($nombre, $numero, $precio);
  
     } 
-
+    
+    /**
+     * muestraComensalesPosibles
+     *
+     * @return
+     */
     public function muestraComensalesPosibles(){
         if($this->minNumComensales == 1 && $this->maxNumComensales == 1){
             return "para mínimo ".$this->minNumComensales."(es) comensal";
@@ -36,7 +50,12 @@ class Tarta extends Dulce{
         }
     }
     
-
+    
+    /**
+     * muestraResumen
+     *
+     * @return void
+     */
     public function muestraResumen()
     {
         parent::muestraResumen();
