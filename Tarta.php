@@ -1,6 +1,6 @@
 <?php
 
-include './Dulces.php';
+include_once('Dulce.php');
 
 class Tarta extends Dulce{
     private $rellenos = [];
@@ -31,6 +31,7 @@ class Tarta extends Dulce{
             return " para " .  $this->minNumComensales . " comensal(es) o " . $this->maxNumComensales ." comensales";
         }
     }
+    
 
     public function muestraResumen()
     {

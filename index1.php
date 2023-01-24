@@ -1,5 +1,5 @@
 <?php
-include './Dulces.php';
+include_once('Dulce.php');
 
 $dulce1 = new Dulce('Tarta de Queso', 1, 3.45);
 

@@ -1,7 +1,8 @@
 <?php
-
-include 'Dulce.php';
-
+include_once('Dulce.php');
+// include_once('Bollo.php');
+// include_once('Chocolate.php');
+// include_once('Tarta.php');
 class Pasteleria{
     private string $nombre;
     private $productos = [];
@@ -38,65 +39,64 @@ class Pasteleria{
         }
 
         private function incluirProducto(Dulce $producto){
+                // echo in_array($producto, $this->productos);
                 if(in_array($producto,$this->productos)){
-                        echo 'El producto ' . $producto->nombre . 'ya estaba incluido';
+                        echo 'El producto ' . $producto->nombre . ' ya estaba incluido<br>';
                 }else{
-                        array_push($this->productos, $producto->numero);
-                        echo 'El producto ' . $producto->nombre . 'ha sido incluido';
+                        array_push($this->productos, $producto);
+                        echo 'El producto ' . $producto->nombre . ' ha sido incluido<br>';
                 }
         }
-        public function incluirTarta(Dulce $tarta){
+        public function incluirTarta(Tarta $tarta){
                 $this->incluirProducto($tarta);
         }
 
-        public function incluirBollo(Dulce $bollo){
+        public function incluirBollo(Bollo $bollo){
                 $this->incluirProducto($bollo);
         }
 
-        public function incluirChocolate(Dulce $chocolate){
+        public function incluirChocolate(Chocolate $chocolate){
                 $this->incluirProducto($chocolate);
         }
         
         public function incluirCliente(Cliente $cliente){
                 if(in_array($cliente,$this->clientes)){
-                        echo 'El cliente ' . $cliente . 'ya estaba incluido';
+                        echo 'El cliente ' . $cliente->getName() . ' ya estaba incluido<br>';
                 }else{
                         array_push($this->clientes, $cliente);
-                        echo 'El cliente ' . $cliente . 'ha sido incluido';
+                        echo 'El cliente ' . $cliente->getName() . ' ha sido incluido<br>';
                 }
         }
         public function listarProductos(){
                 foreach ($this->productos as $producto) {
                         print('<ul>');
-                        echo "<li>$producto</li>";
+                        echo '<li>Producto número'. $producto->getNumero() .'</li>';
                         print('</ul>');
                 }
         }
         public function listarClientes(){
                 foreach ($this->clientes as $cliente) {
                         print('<ul>');
-                        echo "<li>$cliente</li>";
+                        echo '<li>Cliente número'. $cliente->getNumero() .'</li>';
                         print('</ul>');
                 }
         }
 
         public function comprarClienteProducto($numeroCliente,$numeroDulce){
-                if(!in_array($this->clientes,$numeroCliente) || !in_array($this->productos,$numeroDulce))
-                {
-                        echo 'El cliente o número de dulce no se encuentra en 
-                        nuestra pastelería porfavor incluyalo';
-                }else{
-                        foreach ($this->clientes as $cliente) {
-                                if($cliente->numero == $numeroCliente){
-                                        $cliente->numPedidosEfectuados++;
-                                       foreach ($this->productos as $producto) {
-                                                if($producto->numero == $numeroDulce){
-                                                        array_push($cliente->dulcesComprados, $producto);
-                                                }
-                                       }
-                                        break;
+
+                foreach ($this->clientes as $cliente) {
+                       if($cliente->getNumero() != $numeroCliente){
+                                echo 'El cliente o número de dulce no se encuentra en 
+                                 nuestra pastelería porfavor incluyalo';
+                       }else{
+                                foreach ($this->productos as $producto) {
+                                        if($producto->getNumero() == $numeroDulce){
+                                                $cliente->comprar($producto);
+                                                echo 'El cliente ' . $cliente->getName() . ' ha comprado ' . $producto->getNombre() . '<br>';
+                                                return;
+                                        }
                                 }
-                        }
+                       }
                 }
         }
 }

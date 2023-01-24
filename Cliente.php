@@ -1,4 +1,5 @@
-<?php 
+<?php
+include_once('Dulce.php');
 class Cliente{
     public string $name;
     private int $numero;
@@ -18,18 +19,22 @@ class Cliente{
         $this->numPedidosEfectuados = $numPedidosEfectuados;
     }
 
-    public function getName()
-    {
-        return $this->name;
-    }
+        public function getName()
+        {
+            return $this->name;
+        }
 
-    public function setName($name)
-    {
-        $this->name = $name;
+        public function setName($name)
+        {
+            $this->name = $name;
 
-        return $this;
-    }
- 
+            return $this;
+        }
+        
+        public function getDulcesComprados()
+        {
+            return $this->dulcesComprados;
+        }
         public function getNumero()
         {
                 return $this->numero;
@@ -54,11 +59,12 @@ class Cliente{
                 return $this;
         }
         public function comprar(Dulce $d){
+            array_push($this->dulcesComprados, $d);
             if($this->listaDeDulces($d)){
-                echo $this->name . ' ha comprado ' . $d->nombre;
+                echo $this->name . ' ha comprado ' . $d->nombre.'<br>';
                 $this->numPedidosEfectuados++;
             }else{
-                echo $d->nombre . ' no existe compre otro';
+                echo $d->nombre . ' no existe compre otro<br>';
             }
         }
 
@@ -70,7 +76,7 @@ class Cliente{
             }
         }
         public function listaDeDulces(Dulce $d){
-            if(in_array($d->nombre, $this->dulcesComprados)){
+            if(in_array($d, $this->dulcesComprados)){
                 return true;
             }else{
                 return false;
@@ -86,6 +92,8 @@ class Cliente{
             echo '<br>El cliente ' . $this->name . ' ha hecho ' .
                 $this->getNumPedidosEfectuados() . ' pedidos.';
         } 
+
+    
 }
 
 ?>

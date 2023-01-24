@@ -1,6 +1,6 @@
 <?php
 
-include_once './Dulces.php';
+include_once('Dulce.php');
 
 class Bollo extends Dulce{
     private string $relleno;
@@ -15,6 +15,11 @@ class Bollo extends Dulce{
  
     } 
 
+        public function getNombre()
+        {
+                return $this->nombre;
+        }
+
     public function muestraResumen(){
         parent::muestraResumen();
          if($this->relleno == 'Sin relleno'){
@@ -23,6 +28,8 @@ class Bollo extends Dulce{
             echo '<br><br> Es un bollo relleno de ' . $this->relleno;
          }
     }
+
+        
 }
 
 ?>

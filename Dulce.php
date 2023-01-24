@@ -17,11 +17,19 @@ class Dulce { // Parent class
  
     }
 
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+    public function getNumero()
+        {
+            return $this->numero;
+        }
     public function muestraResumen(){
         echo '<strong>NOMBRE</strong>: '. $this->nombre .'<br>';
         echo '<strong>NÚMERO</strong>: '. $this->numero .'<br>';
         echo '<strong>PRECIO</strong>: '. $this->precio .'<br>';
-    }
+    } 
 }
 
 ?>
