@@ -1,5 +1,5 @@
 <?php
-require '../vendor/autoload.php';
+require '../../vendor/autoload.php';
 include_once('Pasteleria.php');
 include_once('Cliente.php');
 include_once('Bollo.php');
@@ -16,7 +16,7 @@ $producto1 = new Bollo('Chocolate','Brownie',1,5.45);
 $producto2 = new Tarta(['Chocolate','Gallete','Chocolate'],3,3,5,'Galleta de chocolate',2,7.5);
 $producto3 = new Chocolate('Si',100,'Tableta de chocolate con leche',3,3.27);
 
-$pasteleria = new Pasteleria('RufeCake', [], 0, [], 0);
+$pasteleria = new Pasteleria('RufeCake');
 
 $pasteleria->incluirCliente($cliente1);
 $pasteleria->incluirCliente($cliente2);

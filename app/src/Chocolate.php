@@ -33,6 +33,7 @@ class Chocolate extends Dulce{
             $this->log->info('<br> Es un dulce de chocolate sin cacao que pesa ' . $this->peso .'g');
             echo '<br> Es un dulce de chocolate sin cacao que pesa ' . $this->peso .'g';
         }
+            echo '<br> ----------------------------';
     }     
 }
 

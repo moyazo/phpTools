@@ -35,9 +35,10 @@ abstract class Dulce implements Resumible { // Parent class
             return $this->numero;
         }
     public function muestraResumen(){
+        echo '<strong>RESUMEN DULCE:</strong><br>';
         echo '<strong>NOMBRE</strong>: '. $this->nombre .'<br>';
         echo '<strong>NÚMERO</strong>: '. $this->numero .'<br>';
-        echo '<strong>PRECIO</strong>: '. $this->precio .'<br>';
+        echo '<strong>PRECIO</strong>: '. $this->precio .'<br> ----------------------------';
         $this->log->info('Mostrando resumen de dulces');
     } 
 }

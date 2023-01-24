@@ -47,6 +47,8 @@ class Tarta extends Dulce{
             $this->log->info('<br>&nbsp&nbsp&nbsp- '. $relleno . '<br>');
             echo '<br>&nbsp&nbsp&nbsp- '. $relleno . '<br>';
         }
+
+        echo '<br> ----------------------------';
     } 
 }
 

@@ -33,6 +33,7 @@ class Bollo extends Dulce{
             $this->log->info('Es un bollo relleno de ' . $this->relleno);
             echo '<br><br> Es un bollo relleno de ' . $this->relleno;
          }
+         echo '<br> ----------------------------';
     }
 
         

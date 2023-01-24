@@ -1,5 +1,5 @@
 <?php
-require '../vendor/autoload.php';
+require '../../vendor/autoload.php';
 include_once('Bollo.php');
 
 $dulce1 = new Bollo('Crema','Cuña de chocolate', 2, 2.45);
