@@ -94,7 +94,7 @@ class Pasteleria{
                 }
                 
                 if ($clienteC == null) 
-                        throw new ClienteNoEncontrado('EL CLIENTE NO HA SIDO ENCONTRADO');
+                        throw new ClienteNoEncontrado('EL CLIENTE NO HA SIDO ENCONTRADOo');
                  else {
                     foreach ($this->productos as $producto) {
                         if($producto->getNumero() == $numeroDulce)
