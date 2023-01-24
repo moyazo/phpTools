@@ -1,0 +1,16 @@
+{
+    "autoload": { "psr-4": {"src\\": "src/"} },
+    "name": "dwes/log",
+    "description": "phpTools",
+    "type": "project",
+    "require": {
+        "monolog/monolog": "^2.8",
+        "phpunit/phpunit": "9.5"
+    },
+    "license": "LGPL-3.0-only",
+    "authors": [
+        {
+            "name": "Manuel"
+        }
+    ]
+}

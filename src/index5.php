@@ -1,5 +1,5 @@
 <?php
-
+require '../vendor/autoload.php';
 include_once('Pasteleria.php');
 include_once('Cliente.php');
 include_once('Bollo.php');
@@ -31,7 +31,7 @@ echo $pasteleria->listarProductos();
 
 $pasteleria->comprarClienteProducto(1,1);
 $pasteleria->comprarClienteProducto(2,2);
-$pasteleria->comprarClienteProducto(2,5);
+$pasteleria->comprarClienteProducto(3,3);
 // echo $cliente1->dulcesComprados[0];
 
 ?>
