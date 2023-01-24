@@ -182,27 +182,27 @@ class Pasteleria
         public function comprarClienteProducto($numeroCliente, $numeroDulce)
         {
 
-                $clienteC = null;
-                $productoC = null;
+                $clienteExisted = null;
+                $productoExisted = null;
 
                 foreach ($this->clientes as $cliente) {
                         if ($cliente->getNumero() == $numeroCliente)
-                                $clienteC = $cliente;
+                                $clienteExisted = $cliente;
                 }
 
-                if ($clienteC == null) {
+                if ($clienteExisted == null) {
                         $this->log->error("EL CLIENTE NO HA SIDO ENCONTRADO");
                         throw new ClienteNoEncontrado('EL CLIENTE NO HA SIDO ENCONTRADO');
                 } else {
                         foreach ($this->productos as $producto) {
                                 if ($producto->getNumero() == $numeroDulce)
-                                        $productoC = $producto;
+                                        $productoExisted = $producto;
                         }
-                        if ($productoC == null) {
+                        if ($productoExisted == null) {
                                 $this->log->error("EL PRODUCTO NO HA SIDO ENCONTRADO");
                                 throw new DulceNoEncontrado('EL PRODUCTO NO HA SIDO ENCONTRADO');
                         } else
-                                $clienteC->comprar($productoC);
+                                $clienteExisted->comprar($productoExisted);
                 }
 
         }
