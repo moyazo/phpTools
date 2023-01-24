@@ -31,7 +31,7 @@ echo $pasteleria->listarProductos();
 
 $pasteleria->comprarClienteProducto(1,1);
 $pasteleria->comprarClienteProducto(2,2);
-$pasteleria->comprarClienteProducto(5,5);
+$pasteleria->comprarClienteProducto(2,5);
 // echo $cliente1->dulcesComprados[0];
 
 ?>

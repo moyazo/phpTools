@@ -1,8 +1,9 @@
 <?php
 include_once('Dulce.php');
-// include_once('Bollo.php');
-// include_once('Chocolate.php');
-// include_once('Tarta.php');
+include_once('../utils/pasteleriaException.php');
+include_once('../utils/DulceNoEncontrado.php.php');
+include_once('../utils/DulceNoComprado.php');
+include_once('../utils/ClienteNoEncontrado.php');
 class Pasteleria{
     private string $nombre;
     private $productos = [];
@@ -88,25 +89,21 @@ class Pasteleria{
                 $productoC = null;
         
                 foreach ($this->clientes as $cliente) {
-                    if($cliente->getNumero() == $numeroCliente){
+                    if($cliente->getNumero() == $numeroCliente)
                         $clienteC = $cliente;
-                    } 
                 }
-        
-                if ($clienteC == null) {
-                    echo "Este cliente no puede comprar ya que no existe.";
-                } else {
+                
+                if ($clienteC == null) 
+                        throw new ClienteNoEncontrado('EL CLIENTE NO HA SIDO ENCONTRADO');
+                 else {
                     foreach ($this->productos as $producto) {
-                        if($producto->getNumero() == $numeroDulce){
+                        if($producto->getNumero() == $numeroDulce)
                             $productoC = $producto;
-                        }
                     }
-        
-                    if ($productoC == null) {
-                        echo "Este producto no se puede comprar ya que no existe.";
-                    } else {
+                    if ($productoC == null) 
+                        throw new DulceNoEncontrado('EL PRODUCTO NO HA SIDO ENCONTRADO');
+                     else 
                         $clienteC->comprar($productoC);
-                    }
                 }
         
         }
